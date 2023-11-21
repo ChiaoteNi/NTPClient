@@ -8,14 +8,17 @@
 import Foundation
 import NTPClient
 
-@objcMembers
-public final class OCNTPClock {
+@objc
+public final class OCNTPClock: NSObject {
     
-    public var currentTime: NSDate {
-        NTPClock.currentTime as NSDate
+    @objc
+    public var currentTime: NSDate? {
+        NTPClock.currentTime as? NSDate
     }
     
-    init() {
+    @objc 
+    public override init() {
+        super.init()
         NTPClock.start()
     }
 }

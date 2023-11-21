@@ -11,6 +11,9 @@ let package = Package(
         .library(
             name: "NTPClient",
             targets: ["NTPClient"]),
+        .library(
+            name: "OCNTPClock",
+            targets: ["OCNTPClock"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
