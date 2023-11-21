@@ -11,8 +11,8 @@ import NTPClient
 @objcMembers
 public final class OCNTPClock {
     
-    public var currentTime: Date {
-        NTPClock.currentTime
+    public var currentTime: NSDate {
+        NTPClock.currentTime as NSDate
     }
     
     init() {
