@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NTPClientConfig {
+public struct NTPClientConfig {
     /// the period to automatic sync time from NTP server
     let autoSyncTimePeriod: TimeInterval
     /// retry until success when sync time fail

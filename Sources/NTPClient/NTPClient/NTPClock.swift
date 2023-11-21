@@ -9,7 +9,7 @@ import Foundation
 
 public final class NTPClock {
     
-    typealias FetchTimeCallBack = (Date) -> Void
+    public typealias FetchTimeCallBack = (Date) -> Void
     
     private static var shared: NTPClock = .init()
     
@@ -20,7 +20,7 @@ public final class NTPClock {
     private var currentCallBack: FetchTimeCallBack?
     private var correctedTime: CorrectedTime?
     
-    static var currentTime: Date? {
+    public static var currentTime: Date? {
         shared.fetchTimeAndSyncIfNeeded()?.currentTime
     }
     
@@ -51,13 +51,13 @@ public final class NTPClock {
         }
     }
     
-    static func configuration(_ config: NTPClientConfig) {
+    public static func configuration(_ config: NTPClientConfig) {
         shared.config = config
         guard shared.currentTimer != nil else { return } // reset timer if timer already exist
         shared.createTimer()
     }
     
-    static func start(then handler: FetchTimeCallBack? = nil) {
+    public static func start(then handler: FetchTimeCallBack? = nil) {
         shared.currentCallBack = handler
         shared.syncTime()
         
@@ -65,12 +65,12 @@ public final class NTPClock {
         shared.createTimer()
     }
     
-    static func forceUpdateTime(then handler: @escaping FetchTimeCallBack) {
+    public static func forceUpdateTime(then handler: @escaping FetchTimeCallBack) {
         shared.currentCallBack = handler
         shared.syncTime()
     }
     
-    static func listenTimeCorrectEvent(then handler: @escaping FetchTimeCallBack) {
+    public static func listenTimeCorrectEvent(then handler: @escaping FetchTimeCallBack) {
         shared.ntpClient.listenNewCorrectedTime { result in
             switch result {
             case .success(let correctedTime):
