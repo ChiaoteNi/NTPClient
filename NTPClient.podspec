@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'NTPClient'
-  s.version          = '1.0.1'
+  s.version          = '1.0.2'
   s.summary          = 'A NTP client for iOS.'
   s.homepage         = 'https://github.com/ChiaoteNi/NTPClient'
   s.author           = { 'ChiaoteNi' => 'aaron.chiao.19@gmail.com' }
