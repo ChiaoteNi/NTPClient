@@ -22,6 +22,11 @@ let package = Package(
         .target(
             name: "NTPClient",
             dependencies: []),
+        .target(
+            name: "OCNTPClock",
+            dependencies: [
+                .target(name: "NTPClient")
+            ]),
         .testTarget(
             name: "NTPClientTests",
             dependencies: ["NTPClient"]),
